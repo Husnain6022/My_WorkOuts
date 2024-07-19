@@ -1,0 +1,8 @@
+.p_4.py
+.practise_1.py
+.practise_2.py
+.practise_3.py
+.venv/
+.idea/
+__pycache__/
+*.pyc
