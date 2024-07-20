@@ -43,12 +43,11 @@ Copy the Google Sheet link and paste it in the SHEET_LINK environment variable.
 
 # Open the Google Sheet
 driver.get(SHEET_LINK)
+driver.maximize_window()
+driver.implicitly_wait(5)
 
 # Wait for user to enter credentials
 input('Please enter your credentials in the browser window, then press Enter here: ')
-
-# Give time for user to log in
-time.sleep(3)
 
 # Iterate through each property and input details into Google Sheet
 for i in range(len(addresses)):
@@ -58,15 +57,15 @@ for i in range(len(addresses)):
     submit_button = driver.find_element(By.XPATH, "/html/body/div/div[3]/form/div[2]/div/div[3]/div[1]/div[1]/div")
 
     # Input property details
+
     addr_input.send_keys(addresses[i])
     price_input.send_keys(prices[i])
     link_input.send_keys(links[i])
 
-    # Pause before submitting
-    time.sleep(2)
+    #submitting
+    
     submit_button.click()
 
-    # Wait and click to submit another response
-    time.sleep(2)
+    # to submit another response
     another_response = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div[1]/div/div[4]/a")
     another_response.click()
